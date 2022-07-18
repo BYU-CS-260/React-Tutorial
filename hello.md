@@ -27,3 +27,13 @@ We then render `element` in that part of the DOM.
     </script>
 ```
 Test to make sure that you are seeing the element in your browser when you access your web servers URL for the subdirectory where this file is found.
+  
+Now create a more complex element with multiple tags.  Experiment by adding some new HTML to the element.
+```
+        const element = (
+          <div>
+          <h1>Hello, world</h1>
+          <h2>Goodbye, world</h2>
+          </div>
+        )
+```
