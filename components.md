@@ -40,8 +40,8 @@ class Welcome extends React.Component {
 ```
 These two components are equivalent from React’s point of view.
 
-You are used to using HTML tags like <h1> or <ul> or <div> that have properties. 
-<div id="root"></div> has the property id passed to it.  
+You are used to using HTML tags like h1 or ul or div that have properties. 
+```<div id="root"></div>``` has the property id passed to it.  
 Components you write in React can also have properties that modify their rendering.
 
 Insert code for your "Welcome" function into your HTML file.
