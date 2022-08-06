@@ -14,7 +14,7 @@ Start by creating a web page called "rendering.html" with a div called "root" th
 </html>
 ```
 Applications built with just React usually have a single root DOM node. 
-If you are integrating React into an existing app, you may many isolated root DOM nodes.
+If you are integrating React into an existing app, you may have many isolated root DOM nodes.
 
 Now add code after the div to render an element with multiple HTML statements.  
 Notice that the function "tick" is called every second because we pass it to the "setInterval" function.
