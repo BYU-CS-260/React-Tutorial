@@ -1,6 +1,6 @@
-# Hello World
+# Rendering
 Elements are the smallest building block of a React page.  
-Start by creating a web page with a div called "root" that React will populate.
+Start by creating a web page called "rendering.html" with a div called "root" that React will populate.
 ```
 <html>
   <head>
