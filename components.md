@@ -77,4 +77,4 @@ Modify your HTML file to contain the following
   root.render(<App />);
   </script>
   ```
-  If you get stuck, you can find the working page [here](components.html).
+  If you get stuck, you can find the working page [here](component.html).
