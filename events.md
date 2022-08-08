@@ -85,10 +85,7 @@ root.render(<Form />);
 ```
 Test this code to make sure you can toggle the button on your server.
 
-Now create a component called 
-```
-<Both \>
-``` that returns both the form and the button.
+Now create a component called ```<Both \>``` that returns both the form and the button.
 
 Test this code to make sure you can submit the form and toggle the button on your server.
   
