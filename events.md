@@ -83,8 +83,12 @@ You will have to change the render to
 ```
 root.render(<Form />);
 ```
-Test this code to make sure you can toggle the button.
+Test this code to make sure you can toggle the button on your server.
 
-  Add something to the React element to build your confidence.
+Now create a component called <Both \> that returns both the form and the button.
+
+Test this code to make sure you can submit the form and toggle the button on your server.
   
-  If you get stuck, you can find the working page [here](events.html).
+Add something to the React element to build your confidence.
+  
+If you get stuck, you can find the working page [here](events.html).
