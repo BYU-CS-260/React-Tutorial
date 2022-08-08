@@ -87,6 +87,10 @@ And then create an object that will maintain state
       }
     }
 ```
+You will need to change the render statement to
+```
+    root.render(<LoginControl/>);
+```
 Add something to the React element to build your confidence.
   
 If you get stuck, you can find the working page [here](conditional.html).
