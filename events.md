@@ -1,12 +1,37 @@
 # Events
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. 
-This part of the tutorial provides an introduction to the idea of components. 
-You can find a detailed component API reference [here](https://reactjs.org/docs/react-component.html).
+Handling events in React is very similar to handling events in javacript except that
+React events are named using camelCase, rather than lowercase and you pass a function as the event handler, rather than a string.
 
-Components are like JavaScript functions. 
-They accept arbitrary inputs (called “props”) and return React elements describing what should appear in the DOM.
+With HTML, you would handle the "button" event with
+```
+<button onclick="activateLasers()">
+  Activate Lasers
+</button>
+```
+Would become
+```
+<button onClick={activateLasers}>
+  Activate Lasers
+</button>
+```
+You must also call "preventDefault()" on the event to keep the default behavior from happening.
+```
+function Form() {
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('You clicked submit.');
+  }
 
-Start with a web page called "components.html" with the following content
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
+For this part of the tutorial, you will create a component that creates a "Submit" button and a component that toggles the label on a button from "OFF" to "ON".
+
+Start with a web page called "events.html" with the following content
 ```
 <html>
   <head>
@@ -15,68 +40,51 @@ Start with a web page called "components.html" with the following content
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-        <div id="root"></div>
+    <div id="root"></div>
+    <script type="text/babel">  
+    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Form />);
+    </script>
   </body>
 </html>
 ```
-The simplest way to define a component is to write a JavaScript function:
-```
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-```
+Add a form with a submit button and test that it works on your server.
 
-This function is a valid React component because it accepts a single “props” 
-(which stands for properties) object argument with data and returns a React element. 
-We call such components “function components” because they are literally JavaScript functions.
-
-You can also use an [ES6](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) class to define a component:
+At times you will want to maintain state between events.  A good way to do this is to create a object.  
+"this" is used to access object data.  The "state" object has the "isToggleOn" variable that determines if 
+the button should display "ON" or "OFF".
 ```
-class Welcome extends React.Component {
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
-  }
-}
-```
-These two components are equivalent from React’s point of view.
-
-You are used to using HTML tags like ```<h1>``` or ```<ul>``` or ```<div>``` that have properties. 
-```<div id="root"></div>``` has the property ```id``` passed to it.  
-Components you write in React can also have properties that modify their rendering.
-
-Insert code for your "Welcome" function into your HTML file.
-```
-  <script type="text/babel">  
-  function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>;
-  }
-
-  const root = ReactDOM.createRoot(document.getElementById('root'));
-  const element = <Welcome name="Sara" />;
-  root.render(element);
-</script>
-```
-## Composing Components
-You can create a component that uses other components to create more complex HTML. 
-Modify your HTML file to contain the following
-```
-  <script type="text/babel">  
-  function Welcome(props) {
-    return <h1>Hello, {props.name}</h1>;
-  }
-  function App() {
     return (
-      <div>
-        <Welcome name="Sara" />
-        <Welcome name="Cahal" />
-        <Welcome name="Edite" />
-      </div>
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
     );
   }
-  const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(<App />);
-  </script>
-  ```
+}
+```
+You will have to change the render to
+```
+root.render(<Form />);
+```
+Test this code to make sure you can toggle the button.
+
   Add something to the React element to build your confidence.
   
   If you get stuck, you can find the working page [here](events.html).
