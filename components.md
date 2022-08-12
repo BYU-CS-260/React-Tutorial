@@ -80,3 +80,5 @@ Modify your HTML file to contain the following
   Add something to the React element to build your confidence.
   
   If you get stuck, you can find the working page [here](component.html).
+
+[Next Tutorial](events.md)
