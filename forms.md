@@ -1,13 +1,11 @@
 # Forms
-Displaying lists in React uses the "map" function in javascript.  
-Lets investigate how to create a ```<ul>``` block using React.
+In HTML, form elements such as ```<input>```, ```<textarea>```, and ```<select>``` typically maintain their own state and update it based on user input. In React, mutable state is typically kept in the state property of components, and only updated with ```setState()```.
+
+We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.
+
+For example, if we want to make a form log the name when it is submitted, we can write the form as a controlled component:
 ```
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li>{number}</li>
-);
-```
-Create a file on your server called "lists.html" with the following content.
+Create a file on your server called "forms.html" with the following content.
 ```
 <html>
   <head>
@@ -20,20 +18,43 @@ Create a file on your server called "lists.html" with the following content.
     <script type="text/babel">  
     
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<List />);
+    root.render(<NameForm />);
     </script>
   </body>
 </html>
 ```
-Now add a block to create an unordered list of the numbers 1 through 5.
+Now add a form object.
 ```
-    function Numbers() { 
-      const numbers = [1, 2, 3, 4, 5];
-      const listItems = numbers.map((number) =>
-        <li>{number}</li>
-      );
-      return(<ul>{listItems}</ul>)
-    }
+class NameForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    );
+  }
+}
 ```
 Test this code to make sure you can submit the form and toggle the button on your server.
   
