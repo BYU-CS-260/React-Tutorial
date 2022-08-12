@@ -3,8 +3,8 @@ In HTML, form elements such as ```<input>```, ```<textarea>```, and ```<select>`
 
 We can combine the two by making the React state be the “single source of truth”. Then the React component that renders a form also controls what happens in that form on subsequent user input. An input form element whose value is controlled by React in this way is called a “controlled component”.
 
-For example, if we want to make a form log the name when it is submitted, we can write the form as a controlled component:
-```
+For example, if we want to make a form log the name when it is submitted, we can write the form as a controlled component.
+
 Create a file on your server called "forms.html" with the following content.
 ```
 <html>
@@ -23,7 +23,7 @@ Create a file on your server called "forms.html" with the following content.
   </body>
 </html>
 ```
-Now add a form object.
+Now add a form object.  Notice that the ```value``` saved in ```this.state``` is used in the ```value``` field of the form.
 ```
 class NameForm extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class NameForm extends React.Component {
   }
 }
 ```
-Test this code to make sure you can submit the form and toggle the button on your server.
+Test this code to make sure you can submit the form and see your name stay in the form field.
   
 Add something to the React element to build your confidence.
   
