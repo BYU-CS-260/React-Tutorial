@@ -42,3 +42,6 @@ and only changes the parts of the DOM that need to be updated.
 Change something in the script so that you are confident you know how an element is rendered.
 
 If you get stuck, you can find the working page [here](rendering.html).
+
+  
+[Next Tutorial](components.md)
