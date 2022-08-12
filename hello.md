@@ -38,3 +38,4 @@ Now create a more complex element with multiple tags.  Experiment by adding some
         )
 ```
 If you get stuck, you can find the working page [here](hello.html).
+[Next Tutorial](rendering.md)
