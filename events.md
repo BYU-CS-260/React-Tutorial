@@ -1,5 +1,5 @@
 # Events
-Handling events in React is very similar to handling events in javacript except that
+Handling events in React is very similar to handling events in javascript except that
 React events are named using camelCase, rather than lowercase and you pass a function as the event handler, rather than a string.
 
 With HTML, you would handle the "button" event with
@@ -81,7 +81,7 @@ class Toggle extends React.Component {
 ```
 You will have to change the render to
 ```
-root.render(<Form />);
+root.render(<Toggle />);
 ```
 Test this code to make sure you can toggle the button on your server.
 
