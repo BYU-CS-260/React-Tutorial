@@ -1,6 +1,6 @@
 # Lists
 Displaying lists in React uses the "map" function in javascript.  
-Lets investigate how to create a ```<ul>``` block using React.
+Let's investigate how to create a ```<ul>``` block using React.
 ```
 const numbers = [1, 2, 3, 4, 5];
 const listItems = numbers.map((number) =>
