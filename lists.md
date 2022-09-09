@@ -35,7 +35,7 @@ Now add a block to create an unordered list of the numbers 1 through 5.
       return(<ul>{listItems}</ul>)
     }
 ```
-Test this code to make sure you can submit the form and toggle the button on your server.
+Test this code to make sure you can display the list of numberf from the array on your server.
   
 Add something to the React element to build your confidence.
   
