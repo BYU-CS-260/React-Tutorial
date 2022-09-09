@@ -20,7 +20,7 @@ Create a file on your server called "lists.html" with the following content.
     <script type="text/babel">  
     
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<List />);
+    root.render(<Numbers />);
     </script>
   </body>
 </html>
