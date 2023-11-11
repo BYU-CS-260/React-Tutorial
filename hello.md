@@ -15,7 +15,7 @@ Now add a `<div>` to `<body>` that React will populate.  When you run `render`, 
 ```
       <div id="mydiv"></div>
 ```
-Now add the javascript to put "Hello World" into this `<div>`.  Put the `<script>` at the bottom of the `<body>`.  Notice that we are using `getElementById` to find the <div> in the DOM.
+Now add the javascript to put "Hello World" into this `<div>`.  Put the `<script>` at the bottom of the `<body>`.  Notice that we are using `getElementById` to find the `<div>` in the DOM.
 We then render `element` in that part of the DOM.
 ```
       <script type="text/babel">
