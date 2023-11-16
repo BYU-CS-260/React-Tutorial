@@ -6,36 +6,29 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel">  
-    class NameForm extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {value: ''};
+    <script type="text/babel"> 
     
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleChange(event) {
-        this.setState({value: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+    function NameForm() {
+    const [state, setState] = React.useState('');
+
+    function handleChange(event) {
+        setState(event.target.value);
+    }
+
+    function handleSubmit(event) {
+        alert('A name was submitted: ' + state);
         event.preventDefault();
-      }
-    
-      render() {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Name:
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        );
-      }
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+        <label>
+            Name:
+            <input type="text" value={state} onChange={handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+        </form>
+    );
     }
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<NameForm />);
