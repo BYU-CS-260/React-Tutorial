@@ -23,37 +23,29 @@ Create a file on your server called "forms.html" with the following content.
   </body>
 </html>
 ```
-Now add a form object.  Notice that the ```value``` saved in ```this.state``` is used in the ```value``` field of the form.
+Now add a form object.  Notice that the ```value``` saved in ```event.target.value``` is used in the ```value``` field of the form.
 ```
-class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+function NameForm() {
+  const [state, setState] = React.useState('');
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  function handleChange(event) {
+    setState(event.target.value);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+  function handleSubmit(event) {
+    alert('A name was submitted: ' + state);
     event.preventDefault();
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" value={state} onChange={handleChange} />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  );
 }
 ```
 Test this code to make sure you can submit the form and see your name stay in the form field.
